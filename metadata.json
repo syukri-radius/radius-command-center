@@ -1,0 +1,6 @@
+{
+  "name": "AetherOps - Hierarchical Infrastructure & Operations Monitoring",
+  "description": "Enterprise hierarchical operations control and monitoring dashboard spanning organizational units, projects, Kubernetes clusters, containers with CPU/Mem/Disk gauges, services, and endpoints.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
