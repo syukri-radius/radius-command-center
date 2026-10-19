@@ -25,6 +25,7 @@ interface OperationsHeaderProps {
   isLiveStreamActive: boolean;
   onToggleLiveStream: () => void;
   onOpenCli: () => void;
+  onOpenFlutterStudio: () => void;
   onResetData: () => void;
   searchQuery: string;
   onSearchChange: (query: string) => void;
@@ -41,6 +42,7 @@ export const OperationsHeader: React.FC<OperationsHeaderProps> = ({
   isLiveStreamActive,
   onToggleLiveStream,
   onOpenCli,
+  onOpenFlutterStudio,
   onResetData,
   searchQuery,
   onSearchChange,
@@ -233,6 +235,17 @@ export const OperationsHeader: React.FC<OperationsHeaderProps> = ({
             </div>
           )}
         </div>
+
+        {/* Flutter Dart Studio Launcher Button */}
+        <button
+          type="button"
+          onClick={onOpenFlutterStudio}
+          className="flex items-center gap-1.5 px-3 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-mono font-medium transition-colors shadow-md shadow-indigo-600/20"
+          title="Open Flutter & Dart Source Explorer"
+        >
+          <span className="font-bold text-[10px] bg-indigo-800/80 px-1 rounded">FLUTTER</span>
+          <span className="hidden lg:inline">Dart Studio</span>
+        </button>
 
         {/* CLI Terminal Launcher Button */}
         <button

@@ -7,6 +7,7 @@ import { FlowCanvas } from './components/FlowCanvas.tsx';
 import { OperationsHeader } from './components/OperationsHeader.tsx';
 import { NodeInspector } from './components/NodeInspector.tsx';
 import { CliExecutor } from './components/CliExecutor.tsx';
+import { FlutterDartStudio } from './components/FlutterDartStudio.tsx';
 
 export default function App() {
   // Primary state: nodes and edges
@@ -16,6 +17,7 @@ export default function App() {
   // Selection & UI state
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>('pod-checkout-api-01');
   const [isCliOpen, setIsCliOpen] = useState(false);
+  const [isFlutterStudioOpen, setIsFlutterStudioOpen] = useState(false);
   const [cliInitialCmd, setCliInitialCmd] = useState<string | undefined>(undefined);
   const [layoutDirection, setLayoutDirection] = useState<LayoutDirection>('DOWN');
 
@@ -160,6 +162,7 @@ export default function App() {
         isLiveStreamActive={isLiveStreamActive}
         onToggleLiveStream={() => setIsLiveStreamActive((p) => !p)}
         onOpenCli={() => handleOpenCli()}
+        onOpenFlutterStudio={() => setIsFlutterStudioOpen(true)}
         onResetData={handleResetData}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
@@ -198,6 +201,11 @@ export default function App() {
         initialCommand={cliInitialCmd}
         onExecuteChaos={handleChaosAction}
       />
+
+      {/* Flutter Dart Architecture & Code Studio */}
+      {isFlutterStudioOpen && (
+        <FlutterDartStudio onClose={() => setIsFlutterStudioOpen(false)} />
+      )}
     </div>
   );
 }
